@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::login')
 
 @section('content')
 <div class="container">
@@ -59,6 +59,11 @@
                         <div class="form-group row mn-0">
                             <div class="col-md-6 offset-md-4">
                                 <a href="{{route('loginFacebook')}}">Login With Facebook</a>
+                            </div>
+                        </div>
+                        <div class="form-group row mn-0">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{route('loginGithub')}}">Login With Github</a>
                             </div>
                         </div>
 

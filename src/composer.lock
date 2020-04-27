@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "474b7c29969a62fb216f045010e2c1a2",
+    "content-hash": "02ef713cdd0b42f901763017b5b3d259",
     "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
+                "reference": "4723bccf4321f28d9ac8ec4f8c64b785e277ba71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/4723bccf4321f28d9ac8ec4f8c64b785e277ba71",
+                "reference": "4723bccf4321f28d9ac8ec4f8c64b785e277ba71",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colorlib"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 4",
+            "homepage": "http://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "time": "2020-04-01T23:06:25+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
@@ -522,6 +561,60 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "jeroennoten/laravel-adminlte",
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeroennoten/Laravel-AdminLTE.git",
+                "reference": "c26da685dbab426162bd921a9b6813dba74b9d82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/c26da685dbab426162bd921a9b6813dba74b9d82",
+                "reference": "c26da685dbab426162bd921a9b6813dba74b9d82",
+                "shasum": ""
+            },
+            "require": {
+                "almasaeed2010/adminlte": "^3.0",
+                "laravel/framework": ">=6.0",
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeroenNoten\\LaravelAdminLte\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Noten",
+                    "email": "jeroennoten@me.com"
+                }
+            ],
+            "description": "Easy AdminLTE integration with Laravel",
+            "keywords": [
+                "AdminLTE",
+                "admin",
+                "administrator",
+                "laravel"
+            ],
+            "time": "2020-03-27T11:13:55+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1818,6 +1911,44 @@
             ],
             "description": "Facebook (facebook.com) OAuth2 Provider for Laravel Socialite",
             "time": "2019-01-11T19:47:04+00:00"
+        },
+        {
+            "name": "socialiteproviders/github",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/GitHub.git",
+                "reference": "21b926c50ed00e2fd89f418ee96be7d82959ef44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/GitHub/zipball/21b926c50ed00e2fd89f418ee96be7d82959ef44",
+                "reference": "21b926c50ed00e2fd89f418ee96be7d82959ef44",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^5.6 || ^7.0",
+                "socialiteproviders/manager": "~2.0 || ~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\GitHub\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Komarev",
+                    "email": "ell@cybercog.su"
+                }
+            ],
+            "description": "GitHub OAuth2 Provider for Laravel Socialite",
+            "time": "2019-09-06T15:27:03+00:00"
         },
         {
             "name": "socialiteproviders/google",

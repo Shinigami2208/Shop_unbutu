@@ -19,19 +19,17 @@ class SocialAuthController extends Controller
 
         $systemUser = User::where('google_id', $googleUSer->id)->get()->first();
 
-        // Da co tren he thong
-        if($systemUser){
-            Auth::loginUsingId($systemUser->id);
-            return redirect()->route('home');
-        }else{ //Chua dang ky tren he thong
-            $newUser = User::Create([
+        // Chua co tren he thong
+
+        if(!$systemUser){
+            $systemUser = User::Create([
                 'name' => $googleUSer->name,
                 'email' => $googleUSer->email,
                 'google_id' => $googleUSer->id,
             ]);
-            Auth::loginUsingId($newUser->id);
-            return redirect()->route('home');
         }
+
+        return $this->loginAndRedirect($systemUser);
     }
 
     public function loginFacebookCallback(Request $request){
@@ -41,19 +39,45 @@ class SocialAuthController extends Controller
         }
 
         $systemUser = User::where('facebook_id', $facebookUSer->id)->get()->first();
-
-        // Da co tren he thong
-        if($systemUser){
-            Auth::loginUsingId($systemUser->id);
-            return redirect()->route('home');
-        }else{ //Chua dang ky tren he thong
-            $newUser = User::Create([
+        // Chua co tren he thong
+        if(!$systemUser){
+            $systemUser = User::Create([
                 'name' => $facebookUSer->name,
                 'email' => ($facebookUSer->email) ?? '',
                 'facebook_id' => $facebookUSer->id,
             ]);
-            Auth::loginUsingId($newUser->id);
-            return redirect()->route('home');
         }
+        return $this->loginAndRedirect($systemUser);
+    }
+
+    public function loginGithubCallback(Request $request){
+        $githubUSer = Socialite::driver('Github')->user();
+        if(!$githubUSer){
+            return 'Cannot Authenticate!';
+        }
+
+        $systemUser = User::where('github_id', $githubUSer->id)->get()->first();
+        // Chua co tren he thong
+        if(!$systemUser){
+            $systemUser = User::Create([
+                'name' => ($githubUSer->name) ?? ($githubUSer->nickname),
+                'email' => ($githubUSer->email) ?? '',
+                'github_id' => $githubUSer->id,
+            ]);
+        }
+
+        return $this->loginAndRedirect($systemUser);
+        
+    }
+
+    protected function loginAndRedirect($systemUser){
+        Auth::loginUsingId($systemUser->id);
+        
+        if(Auth::user()->role->name == 'admin'){
+            $routeTo = 'adminHome';
+        }else{
+            $routeTo = 'profile';
+        }
+        return redirect()->route($routeTo);
     }
 }
